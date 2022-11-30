@@ -1,0 +1,109 @@
+Feature: ContactRecordContactTabInterestsSection
+  As a user, I want to view and edit Interests of our contacts.
+  
+Background:
+Given I am logged in to 'OneCRM' as a 'User'
+And I navigate to the 'contact' list page
+
+@Contacts
+Scenario : Verify User is able to add multiple interest, type text in 'Other' field and create the contact successfully
+
+And I click on the '+ New' button on the top of the page to create a new contact
+And I click on the 'Contact' tab 
+When I click on the 'Outdoors' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Four Wheel Driving|
+|Hiking|
+|Surfing|
+|Fishing|
+
+And I click on the 'Wellbeing' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Art|
+|Sporting Activities|
+|Health & Fitness|
+
+And I click on the 'Social/Family' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Cooking|
+|Family activities|
+|Music events|
+ 
+And I enter any text on the 'Other' field 
+And I click on the 'save' button after entering all mandatory details 
+Then the contact should be created successfully 
+
+@Contacts
+Scenario : Verify User is able to create contact without adding 'Interests'
+
+And I click on the '+ New' button on the top of the page to create a new contact
+And I click on the 'Contact' tab 
+When I enter all mandatory details without adding 'Interests'
+And I click on the 'Save' button
+Then the contact should be created successfully without adding 'Interests'
+
+@Contacts
+Scenario : Verify User is able to modify or deselect 'Interests' options of an existing contact record
+
+And I open an existing contact
+And I click on the 'Contact' tab 
+When I click on the 'Outdoors' multi- select dropdown in the 'Interests' section
+And I should be able to select or deselect the following checkboxes:
+|Four Wheel Driving|
+|Hiking|
+|Surfing|
+|Fishing|
+
+And I click on the 'Wellbeing' multi- select dropdown in the 'Interests' section
+And I should be able to select or deselect the following checkboxes:
+|Art|
+|Sporting Activities|
+|Health & Fitness|
+
+And I click on the 'Social/Family' multi- select dropdown in the 'Interests' section
+Then I should be able to select or deselect the following checkboxes:
+|Cooking|
+|Family activities|
+|Music events|
+
+And I click on  the 'Save & Close' button
+
+
+@Contacts
+Scenario : Verify User is able to edit or delete the 'Other' interests in the 'Other' field  of an existing contact record
+
+And I open an existing contact
+And I click on the 'Contact' tab 
+When I clear the 'Other' field text in the 'Interests' section 
+Then I should be able to enter new text in the 'Other' field
+And I click on 'Save & Close' button
+
+@Contacts
+Scenario : Verify User is able to add 'Interests' of an existing contact record
+
+And I open an existing contact
+And I click on the 'Contact' tab 
+When I click on the 'Outdoors' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Four Wheel Driving|
+|Hiking|
+|Surfing|
+|Fishing|
+
+And I click on the 'Wellbeing' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Art|
+|Sporting Activities|
+|Health & Fitness|
+
+And I click on the 'Social/Family' multi- select dropdown in the 'Interests' section
+And I should be able to select one or multiple options from the following:
+|Cooking|
+|Family activities|
+|Music events|
+
+Then the 'Interests' should be added after clicking on the 'Save & Close' button
+
+
+
+

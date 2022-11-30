@@ -1,0 +1,60 @@
+Feature: CaseOverviewTabTimelineSection
+   As a user, I want to see the Timeline section against a Case record so I can track activities against that Case.
+
+Background:
+Given I am logged in to "OneCRM" as a "User"
+And I navigate to the 'Cases' list page
+
+@Contacts
+Scenario: Verify "Timeline" section is displayed on the overview tab for an existing case record
+
+And I open an existing case record
+Then I verify "Timeline" section is displayed on the overview tab of a Case record
+
+@Contacts
+Scenario Outline:  Verify if a "Timeline" '<Item names>' record can be added successfully for an existing case record
+
+And I open an existing case record
+When I click on the '+' button on the top of the 'Timeline' section
+And I create a new '<Item names>' and 'Save & Close' the details
+Then I verify the newly created '<Item names>' is displayed on the "Timeline" section
+
+Examples:
+|  Item names     |
+|  Appointment    |
+|  Email          |
+|  Note           |
+|  Phone call        |
+|  Task              |
+|  Alert Subscription|
+|  Booking Alert       |
+|  Customer Voice Alert|
+|  Invite Redemption   |
+|  Portal comment      |
+|  Post                |
+|Notification|
+
+@Contacts
+Scenario Outline:  Verify if a "Timeline" '<Item names>' record can be added successfully for a new record
+
+And I click on the 'New Case' button on top of the page
+And I enter all mandatory fields to create a new case
+And I click on the 'Save' button
+When I click on the '+' button on the top of the 'Timeline' section
+And I create a new '<Item names>' and 'Save & Close' the details
+Then I verify the newly created '<Item names>' is displayed on the "Timeline" section
+
+Examples:
+|  Item names     |
+|  Appointment    |
+|  Email          |
+|  Note           |
+|  Phone call        |
+|  Task              |
+|  Alert Subscription|
+|  Booking Alert       |
+|  Customer Voice Alert|
+|  Invite Redemption   |
+|  Portal comment      |
+|  Post                |
+|Notification|
